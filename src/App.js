@@ -40,11 +40,13 @@ const App = () => {
   useEffect(() => {
     const searchText = stringToSearch
     if (searchText !== '') {
-      const modifiedText = userInput.replaceAll(searchText,`<span style="background-color: yellow;">${stringToSearch}</span>`)
+      const modifiedText = userInput.replaceAll(searchText,`"[${stringToSearch}]"`)
       const textareaele = document.getElementById('textarea')
-    textareaele.innerHTML = modifiedText
+      textareaele.value=modifiedText
     }
-    setUserInput(userInput)
+    else{
+      setUserInput(userInput)
+    }
   },[stringToSearch, userInput])
 
   const updateUserInput = event => {
@@ -61,7 +63,7 @@ const App = () => {
 
   const replaceText=event=>{
     event.preventDefault()
-    if (replaceText !== '') {
+    if (replaceText !== '' && stringToSearch!=="") {
       const modifiedText = userInput.replaceAll(stringToSearch,stringToReplace)
       setUserInput(modifiedText)
       setstringToReplace("")
@@ -75,8 +77,8 @@ const App = () => {
         onChange={updateUserInput}
         value={userInput}
         id="textarea"
-        className="textarea">
-          ""
+        className="textarea"
+        placeholder='Enter Text'>
         </textarea>
       <div className="word-info-container">
         <p className="word-count">

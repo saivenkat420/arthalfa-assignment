@@ -20,6 +20,14 @@ body {
   min-height: 100vh;
   max-height: 100%;
 }
+.text-input-label{
+  margin-bottom: 5px;
+  color:#f8fafc;
+  font-family: "Roboto";
+  font-size:15px;
+  align-self: flex-start;
+  text-align: left;
+}
 .textarea{
   width: 80%;
   height: 60vh;
