@@ -64,6 +64,8 @@ const App = () => {
     if (replaceText !== '') {
       const modifiedText = userInput.replaceAll(stringToSearch,stringToReplace)
       setUserInput(modifiedText)
+      setstringToReplace("")
+      setStringToSearch("")
     }
   }
 
